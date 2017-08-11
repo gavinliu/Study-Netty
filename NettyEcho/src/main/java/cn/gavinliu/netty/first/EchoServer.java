@@ -33,6 +33,8 @@ public class EchoServer {
 
     private void start() throws Exception {
         final EchoServerHandler serverHandler = new EchoServerHandler();
+        final TimerServerHandler timerServerHandler = new TimerServerHandler();
+
         EventLoopGroup group = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap();
@@ -41,7 +43,7 @@ public class EchoServer {
                     .localAddress(new InetSocketAddress(port))
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
-                            socketChannel.pipeline().addLast(serverHandler);
+                            socketChannel.pipeline().addLast(timerServerHandler);
                         }
                     });
 
