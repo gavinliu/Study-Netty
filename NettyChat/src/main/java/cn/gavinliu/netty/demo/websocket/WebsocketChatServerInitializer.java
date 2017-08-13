@@ -8,10 +8,10 @@ import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.stream.ChunkedWriteHandler;
 
-public class WebsocketChatServerInitializer extends ChannelInitializer<SocketChannel> {    //1
+public class WebsocketChatServerInitializer extends ChannelInitializer<SocketChannel> {
 
     @Override
-    public void initChannel(SocketChannel ch) throws Exception {//2
+    public void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
 
         pipeline.addLast(new HttpServerCodec());
